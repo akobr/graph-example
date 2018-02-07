@@ -15,7 +15,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -190,6 +190,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Graph.Domain\Graph.Domain.csproj">
+      <Project>{790bdfa4-6caa-457d-931d-a23ecb918c95}</Project>
+      <Name>Graph.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Graph.Model.Interfaces\Graph.Model.Interfaces.csproj">
       <Project>{819b87dc-5934-4df9-8e52-e6f5fbdaac66}</Project>
       <Name>Graph.Model.Interfaces</Name>
@@ -218,7 +222,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52112</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52112/</IISUrl>
+          <IISUrl>http://localhost/Graph</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Graph.Model
 {
+    [DataContract]
     public partial class Node : INode
     {
         public Node()
@@ -14,8 +15,10 @@ namespace Graph.Model
             InEdges = new HashSet<Edge>();
         }
 
+        [DataMember]
         public int Id { get; set; }
 
+        [DataMember]
         public string Label { get; set; }
 
         [IgnoreDataMember]
@@ -28,10 +31,8 @@ namespace Graph.Model
         [JsonIgnore]
         public HashSet<Edge> InEdges { get; set; }
 
-        [IgnoreDataMember]
-        [XmlIgnore]
-        [JsonIgnore]
-        IEnumerable<int> INode.AdjacentNodes
+        [DataMember]
+        public IEnumerable<int> AdjacentNodes
         {
             get
             {

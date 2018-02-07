@@ -6,6 +6,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Graph.Model.Interfaces\Graph.Model.Interfaces.csproj" />
+    <ProjectReference Include="..\Graph.Model\Graph.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Structures\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Composition" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

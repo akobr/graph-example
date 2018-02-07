@@ -1,4 +1,5 @@
-﻿using Graph.Model.Interfaces;
+﻿using Graph.Model;
+using Graph.Model.Interfaces;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -10,10 +11,10 @@ namespace Graph.Services
     {
         [OperationContract]
         [WebGet(UriTemplate = "graph")]
-        IList<INode> GetGraph();
+        ICollection<Node> GetGraph();
 
         [OperationContract]
         [WebGet(UriTemplate = "path/{idFrom}/{idTo}")]
-        IList<IEdge> GetShortestPath(string idFrom, string idTo);
+        ICollection<int> GetShortestPath(string idFrom, string idTo);
     }
 }

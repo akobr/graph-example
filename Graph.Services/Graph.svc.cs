@@ -1,14 +1,13 @@
 ﻿using CommonServiceLocator;
+using Graph.Domain;
 using Graph.Model;
-using Graph.Model.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Graph.Services
 {
     public class Graph : IGraph
     {
-        public IList<INode> GetGraph()
+        public ICollection<Node> GetGraph()
         {
             Activator.Initialise();
 
@@ -16,11 +15,32 @@ namespace Graph.Services
             return storage.RetrieveGraph();
         }
 
-        public IList<IEdge> GetShortestPath(string idFrom, string idTo)
+        public ICollection<int> GetShortestPath(string idFromValue, string idToValue)
         {
             Activator.Initialise();
 
-            return null;
+            int idFrom, idTo;
+
+            if (!int.TryParse(idFromValue, out idFrom)
+                || !int.TryParse(idToValue, out idTo))
+            {
+                return new List<int>();
+            }
+
+            IGraphStorageService storage = ServiceLocator.Current.GetInstance<IGraphStorageService>();
+            IGraphBuilder builder = ServiceLocator.Current.GetInstance<IGraphBuilder>();
+            IShortestPathStrategy pathStrategy = ServiceLocator.Current.GetInstance<IShortestPathStrategy>();
+
+            Domain.IGraph graph = builder.BuildGraph(storage.RetrieveGraph());
+            IGraphNode fromNode = graph.GetNode(idFrom);
+            IGraphNode toNode = graph.GetNode(idTo);
+
+            if (fromNode == null || toNode == null)
+            {
+                return new List<int>();
+            }
+
+            return pathStrategy.FindShortestPath(graph, fromNode, toNode);
         }
     }
 }

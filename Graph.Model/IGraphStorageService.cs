@@ -7,7 +7,7 @@ namespace Graph.Model
     {
         void DeleteGraph();
 
-        IList<INode> RetrieveGraph();
+        IList<Node> RetrieveGraph();
 
         void SaveGraph(IList<Node> nodes);
     }

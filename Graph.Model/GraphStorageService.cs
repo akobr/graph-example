@@ -1,5 +1,5 @@
 ﻿using CommonServiceLocator;
-using Graph.Model.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,11 +7,11 @@ namespace Graph.Model
 {
     public class GraphStorageService : IGraphStorageService
     {
-        public IList<INode> RetrieveGraph()
+        public IList<Node> RetrieveGraph()
         {
             using (IUnitOfWork work = ServiceLocator.Current.GetInstance<IUnitOfWork>())
             {
-                return new List<INode>(work.GetGenericRepository<Node>().Entities);
+                return work.GetGenericRepository<Node>().Entities.Include(node => node.OutEdges).ToList();
             }
         }
 

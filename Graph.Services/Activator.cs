@@ -1,4 +1,5 @@
 ﻿using CommonServiceLocator;
+using Graph.Domain;
 using Graph.Model;
 using Graph.Resolver;
 using Graph.Services.Resolver;
@@ -17,8 +18,9 @@ namespace Graph.Services
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(container));
 
             ComponentLoader.LoadContainer(register,
-                Assembly.GetExecutingAssembly()/*,
-                Assembly.GetAssembly(typeof(IGraphStorageService))*/);
+                Assembly.GetExecutingAssembly(),
+                Assembly.GetAssembly(typeof(ModelDependencyResolver)),
+                Assembly.GetAssembly(typeof(DomainDependencyResolver)));
         }
     }
 }
