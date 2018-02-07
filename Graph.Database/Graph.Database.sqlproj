@@ -69,6 +69,7 @@
     <None Include="CompareFromDatabase.scmp" />
     <None Include="CompareToDatabase.scmp" />
     <None Include="scripts\Script.Test.Data.sql" />
+    <None Include="Graph.Database.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="scripts\Script.PostDeployment.sql" />

@@ -1,4 +1,5 @@
 ﻿using CommonServiceLocator;
+using Graph.Model;
 using Graph.Resolver;
 using Graph.Util.Resolver;
 using System.Reflection;
@@ -15,7 +16,9 @@ namespace Graph.Util
             RegisterComponent register = new RegisterComponent(container);
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(container));
 
-            ComponentLoader.LoadContainer(register, Assembly.GetExecutingAssembly());
+            ComponentLoader.LoadContainer(register,
+                Assembly.GetExecutingAssembly(),
+                Assembly.GetAssembly(typeof(IGraphStorageService)));
         }
     }
 }

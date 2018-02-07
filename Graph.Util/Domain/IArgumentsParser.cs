@@ -1,4 +1,4 @@
-﻿namespace Graph.Util.Arguments
+﻿namespace Graph.Util.Domain
 {
     public interface IArgumentsParser
     {
@@ -6,13 +6,7 @@
 
         string Path { get; }
 
-        bool UseUnidirectionalMode { get; }
-
         bool UseRecreationMode { get; }
-
-        bool HasConnectionString { get; }
-
-        string ConnectionString { get; }
 
         bool IsHelpPageRequested { get; }
 

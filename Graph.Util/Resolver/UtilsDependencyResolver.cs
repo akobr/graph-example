@@ -1,6 +1,6 @@
-﻿using Graph.Resolver;
-using Graph.Util.Arguments;
-using Graph.Util.Help;
+﻿using Graph.Model;
+using Graph.Resolver;
+using Graph.Util.Domain;
 using System.Composition;
 
 namespace Graph.Util.Resolver
@@ -10,8 +10,10 @@ namespace Graph.Util.Resolver
     {
         public void SetUp(IRegisterComponent registerComponent)
         {
-            registerComponent.RegisterType<IArgumentsParser, DefaultArgumentsParser>();
-            registerComponent.RegisterType<IHelpGenerator, DefaultHelpGenerator>();
+            registerComponent.RegisterSingletonType<IArgumentsParser, DefaultArgumentsParser>();
+            registerComponent.RegisterSingletonType<IHelpGenerator, DefaultHelpGenerator>();
+            registerComponent.RegisterSingletonType<IGraphLoader, DefaultGraphLoader>();
+            registerComponent.RegisterSingletonType<IModelConfiguration, UtilModelConfiguration>();
         }
     }
 }

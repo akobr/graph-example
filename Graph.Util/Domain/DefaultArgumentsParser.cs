@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.IO;
 using System.Linq;
 
-namespace Graph.Util.Arguments
+namespace Graph.Util.Domain
 {
     public class DefaultArgumentsParser : IArgumentsParser
     {
@@ -16,8 +16,6 @@ namespace Graph.Util.Arguments
         public bool AreValid { get; private set; }
 
         public string Path { get; private set; }
-
-        public bool UseUnidirectionalMode { get; private set; }
 
         public bool UseRecreationMode { get; private set; }
 
@@ -46,7 +44,7 @@ namespace Graph.Util.Arguments
             Path = path;
             IsHelpPageRequested = false;
             ProcessFlags(arguments);
-
+            AreValid = true;
         }
 
         private void Reset()
@@ -57,20 +55,15 @@ namespace Graph.Util.Arguments
             Path = string.Empty;
             ConnectionString = string.Empty;
             UseRecreationMode = false;
-            UseUnidirectionalMode = false;
         }
 
         private void ProcessFlags(string[] arguments)
         {
-            for (int i = 0; i < arguments.Length; i++)
+            for (int i = 1; i < arguments.Length; i++)
             {
                 string argument = arguments[i];
 
-                if(IsUnidirectionalModeFlag(argument))
-                {
-                    UseUnidirectionalMode = true;
-                }
-                else if(IsRecreationModeFlag(argument))
+                if(IsRecreationModeFlag(argument))
                 {
                     UseRecreationMode = true;
                 }
@@ -92,11 +85,6 @@ namespace Graph.Util.Arguments
         private static bool GetIsHelpPageRequested(string[] arguments)
         {
             return arguments.Any(arg => IsHelpPageRequestedFlag(arg));
-        }
-
-        private static bool IsUnidirectionalModeFlag(string argument)
-        {
-            return argument.CheckRegularExpression(@"^(\/|-)u(nidirectional)?$");
         }
 
         private static bool IsRecreationModeFlag(string argument)

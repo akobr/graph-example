@@ -1,9 +1,9 @@
 ﻿using CommonServiceLocator;
-using Graph.Util.Arguments;
-using Graph.Util.Help;
+using Graph.Model;
+using Graph.Util.Domain;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace Graph.Util
 {
@@ -16,23 +16,43 @@ namespace Graph.Util
             IArgumentsParser parser = ServiceLocator.Current.GetInstance<IArgumentsParser>();
             parser.Parse(args);
 
-            if (!parser.AreValid || parser.IsHelpPageRequested)
+            using (TextWriter writer = new StreamWriter(Console.OpenStandardOutput()))
             {
-                ShowHelp();
+                if (!parser.AreValid || parser.IsHelpPageRequested)
+                {
+                    ShowHelp(writer);
+                    Console.ReadLine();
+                    return;
+                }
+
+                ProcessGraph(parser, writer);
             }
 
-            Console.WriteLine("TODO: Process a graph.");
             Console.ReadLine();
         }
 
-        private static void ShowHelp()
+        private static void ProcessGraph(IArgumentsParser parser, TextWriter writer)
+        {
+            IGraphLoader loader = ServiceLocator.Current.GetInstance<IGraphLoader>();
+            IList<Node> graph = loader.LoadGraph(parser.Path, writer);
+
+            IGraphStorageService storage = ServiceLocator.Current.GetInstance<IGraphStorageService>();
+
+            if (parser.UseRecreationMode)
+            {
+                storage.DeleteGraph();
+                writer.WriteLine("Old graph has been deleted.");
+            }
+
+            storage.SaveGraph(graph);
+            writer.WriteLine("Graph data has been saved.");
+            writer.Flush();
+        }
+
+        private static void ShowHelp(TextWriter writer)
         {
             IHelpGenerator generator = ServiceLocator.Current.GetInstance<IHelpGenerator>();
-
-            using (Stream stream = Console.OpenStandardOutput())
-            {
-                generator.GenerateAsync(stream);
-            }
+            generator.Generate(writer);
         }
     }
 }

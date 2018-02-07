@@ -1,4 +1,5 @@
-﻿using Graph.Resolver;
+﻿using System;
+using Graph.Resolver;
 using Unity;
 using Unity.Lifetime;
 
@@ -16,7 +17,13 @@ namespace Graph.Util.Resolver
         public void RegisterType<TInterface, TClass>()
             where TClass : TInterface
         {
-            container.RegisterType<TInterface, TClass>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TInterface, TClass>();
+        }
+
+        public void RegisterSingletonType<TInterface, TClass>()
+            where TClass : TInterface
+        {
+            container.RegisterSingleton<TInterface, TClass>();
         }
     }
 }

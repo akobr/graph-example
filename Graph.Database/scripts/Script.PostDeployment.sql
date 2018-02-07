@@ -10,9 +10,12 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-DECLARE @createTestData bit = 1;
+DECLARE @createTestData bit;
 
-IF @createTestData == 1
+-- SPECIFY IF THE SIMPLE TEST DATA WILL BE ADDED TO PUBLISHED DATABASE
+SET @createTestData = 1;
+
+IF (@createTestData = 1)
 BEGIN
   :r .\Script.Test.Data.sql
 END;

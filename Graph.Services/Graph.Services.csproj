@@ -82,6 +82,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Graph.Model\Graph.Model.csproj">
+      <Project>{69ae31e4-371c-4431-bcda-d266affda245}</Project>
+      <Name>Graph.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graph.Resolver\Graph.Resolver.csproj">
+      <Project>{0a4bc18a-51f7-44c1-b0dd-f9935166300c}</Project>
+      <Name>Graph.Resolver</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

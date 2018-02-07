@@ -1,12 +1,12 @@
 ﻿-- NOTES --
-INSERT INTO dbo.[Notes] (Id, IdExternal, Label)
-VALUES (1, '1', 'Test node 1');
+INSERT INTO dbo.[Notes] (Id, Label)
+VALUES (1, 'Test node 1');
 
-INSERT INTO dbo.[Notes] (Id, IdExternal, Label)
-VALUES (2, '2', 'Test node 2');
+INSERT INTO dbo.[Notes] (Id, Label)
+VALUES (2, 'Test node 2');
 
-INSERT INTO dbo.[Notes] (Id, IdExternal, Label)
-VALUES (3, '3', 'Test node 3');
+INSERT INTO dbo.[Notes] (Id, Label)
+VALUES (3, 'Test node 3');
 
 
 -- EDGES --
