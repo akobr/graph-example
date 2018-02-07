@@ -1,16 +1,17 @@
 ﻿using CommonServiceLocator;
 using Graph.Model.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Graph.Model
 {
     public class GraphStorageService : IGraphStorageService
     {
-        public IEnumerable<INode> RetrieveGraph()
+        public IList<INode> RetrieveGraph()
         {
             using (IUnitOfWork work = ServiceLocator.Current.GetInstance<IUnitOfWork>())
             {
-                return work.GetGenericRepository<Node>().Entities;
+                return new List<INode>(work.GetGenericRepository<Node>().Entities);
             }
         }
 

@@ -9,6 +9,9 @@ namespace Graph.Services.Resolver
     {
         public void SetUp(IRegisterComponent registerComponent)
         {
+            registerComponent.RegisterType<IDataContext, GraphDataContext>();
+            registerComponent.RegisterType<IUnitOfWork, DefaultUnitOfWork>();
+            registerComponent.RegisterType<IGraphStorageService, GraphStorageService>();
             registerComponent.RegisterSingletonType<IModelConfiguration, ServicesModelConfiguration>();
         }
     }

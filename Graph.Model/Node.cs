@@ -1,6 +1,8 @@
 ﻿using Graph.Model.Interfaces;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace Graph.Model
 {
@@ -16,12 +18,19 @@ namespace Graph.Model
 
         public string Label { get; set; }
 
+        [IgnoreDataMember]
+        [XmlIgnore]
         [JsonIgnore]
         public HashSet<Edge> OutEdges { get; set; }
 
+        [IgnoreDataMember]
+        [XmlIgnore]
         [JsonIgnore]
         public HashSet<Edge> InEdges { get; set; }
 
+        [IgnoreDataMember]
+        [XmlIgnore]
+        [JsonIgnore]
         IEnumerable<int> INode.AdjacentNodes
         {
             get

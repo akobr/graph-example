@@ -2,7 +2,6 @@
 using Graph.Model;
 using Graph.Resolver;
 using Graph.Services.Resolver;
-using System.IO;
 using System.Reflection;
 using Unity;
 using Unity.ServiceLocation;
@@ -18,8 +17,8 @@ namespace Graph.Services
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(container));
 
             ComponentLoader.LoadContainer(register,
-                Assembly.GetExecutingAssembly(),
-                Assembly.LoadFile(Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, "bin","Graph.Model.dll")));
+                Assembly.GetExecutingAssembly()/*,
+                Assembly.GetAssembly(typeof(IGraphStorageService))*/);
         }
     }
 }
