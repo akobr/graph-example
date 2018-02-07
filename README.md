@@ -14,8 +14,7 @@ Entire solution is based on .NET Core.
 * *Graph.Database* - Database project, can be used for creating example database. Any MS SQL server is suitable, even Express Edition.
 * **Graph.Util** - Console application for loading a graph into a database.
 * **Graph.Services** - Serve WCF and REST web services with a graph data, everything is served in JSON format. *This is the only project which is not in the .NET Core.*
-* **Graph.Client** - Core logic of the client(s).
-* *Graph.Client.WPF* - WPF example client for graph visualisation.
+* *Graph.Client.WPF* - WPF example client for graph visualisation. *Not implemented yet.*
 
 ## Database Model
 

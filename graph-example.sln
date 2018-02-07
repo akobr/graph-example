@@ -3,25 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Resolver", "Graph.Resolver\Graph.Resolver.csproj", "{0A4BC18A-51F7-44C1-B0DD-F9935166300C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph.Resolver", "Graph.Resolver\Graph.Resolver.csproj", "{0A4BC18A-51F7-44C1-B0DD-F9935166300C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Model.Interfaces", "Graph.Model.Interfaces\Graph.Model.Interfaces.csproj", "{819B87DC-5934-4DF9-8E52-E6F5FBDAAC66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph.Model.Interfaces", "Graph.Model.Interfaces\Graph.Model.Interfaces.csproj", "{819B87DC-5934-4DF9-8E52-E6F5FBDAAC66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Model", "Graph.Model\Graph.Model.csproj", "{69AE31E4-371C-4431-BCDA-D266AFFDA245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph.Model", "Graph.Model\Graph.Model.csproj", "{69AE31E4-371C-4431-BCDA-D266AFFDA245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Util", "Graph.Util\Graph.Util.csproj", "{4FBDB77E-FBC5-44AF-A4F5-FD0456EACBFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph.Util", "Graph.Util\Graph.Util.csproj", "{4FBDB77E-FBC5-44AF-A4F5-FD0456EACBFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Domain.Tests", "Graph.Domain.Tests\Graph.Domain.Tests.csproj", "{213852E6-C97C-4A21-9B11-F20377B42207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Domain", "Graph.Domain\Graph.Domain.csproj", "{790BDFA4-6CAA-457D-931D-A23ECB918C95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph.Domain", "Graph.Domain\Graph.Domain.csproj", "{790BDFA4-6CAA-457D-931D-A23ECB918C95}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Graph.Database", "Graph.Database\Graph.Database.sqlproj", "{79CA6A3C-DA1C-4539-9091-D63442B02E7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Client.WPF", "Graph.Client.WPF\Graph.Client.WPF.csproj", "{5C5D29BD-B789-457C-9D60-43B5004D6F57}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D4BDD36F-0EB0-420F-9D21-BF8796E22F64} = {D4BDD36F-0EB0-420F-9D21-BF8796E22F64}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Services", "Graph.Services\Graph.Services.csproj", "{D4BDD36F-0EB0-420F-9D21-BF8796E22F64}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Client", "Graph.Client\Graph.Client.csproj", "{1CACE559-D0F1-4479-AB90-C7ABDC47FD28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C18D37B6-8DDF-4781-87CF-9A2C8A39ECE0}"
 	ProjectSection(SolutionItems) = preProject
@@ -73,10 +74,6 @@ Global
 		{D4BDD36F-0EB0-420F-9D21-BF8796E22F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4BDD36F-0EB0-420F-9D21-BF8796E22F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4BDD36F-0EB0-420F-9D21-BF8796E22F64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1CACE559-D0F1-4479-AB90-C7ABDC47FD28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CACE559-D0F1-4479-AB90-C7ABDC47FD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CACE559-D0F1-4479-AB90-C7ABDC47FD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CACE559-D0F1-4479-AB90-C7ABDC47FD28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
